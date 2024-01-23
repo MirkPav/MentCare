@@ -1,0 +1,127 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>MENTCARE APP</title>
+    <style>
+        body {
+
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          font-family: 'Jost', sans-serif;
+
+        }
+
+        .navbar {
+          overflow: hidden;
+          background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        }
+
+        .navbar a {
+          float: left;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+
+        .dropdown {
+          float: left;
+          overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+          font-size: 16px;
+          border: none;
+          outline: none;
+          color: white;
+          padding: 14px 16px;
+          background-color: inherit;
+          font-family: inherit;
+          margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+          background-color: red;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e)
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          float: none;
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+
+        .dropdown-content a:hover {
+          background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+        .logout{
+            float: right;
+        }
+    </style>
+<body>
+<div class="navbar">
+    <a href="/home">Home</a>
+    <a th:if="${ROLE == 'RECEPTIONIST'}" href="/input">New Patient</a>
+    <a th:if="${ROLE == 'RECEPTIONIST'}" href="/list">Patients List</a>
+    <a th:if="${ROLE == 'RECEPTIONIST'}" href="/appointmentList">Appointment List</a>
+    <a th:if="${ROLE == 'NURSE'}" href="/viewRecord">View Record</a>
+    <a th:if="${ROLE == 'NURSE'}" href="#">Edit Record</a>
+    <a th:if="${ROLE == 'DOCTOR'}" href="/list">Patients List</a>
+    <a th:if="${ROLE == 'DOCTOR'}" href="/viewRecord">View Record</a>
+    <a th:if="${ROLE == 'DOCTOR'}" href="#">Edit Record</a>
+    <a th:if="${ROLE == 'DOCTOR'}" href="#">Setup consultation</a>
+    <a th:if="${ROLE == 'DOCTOR'}" href="#">Generate report</a>
+    <a th:if="${ROLE == 'MANAGER'}" href="/list">Patients List</a>
+    <a th:if="${ROLE == 'MANAGER'}" href="#">Export statistics</a>
+    <a th:if="${ROLE == 'MANAGER'}" href="#">Generate report</a>
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+<h1>Patient Details</h1>
+<Label>Paziente:</Label>
+<b th:text="${patient.firstName}">John</b>
+<b th:text="${patient.lastName}">Smith</b>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Drug</th>
+        <th>Dose</th>
+        <th>Days</th>
+        <th>Notes</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="medication: ${medications}">
+        <td th:text="${#dates.format(medication.date, 'dd/mm/yyyy')}"> 01/11/2023 </td>
+        <td th:text="${medication.drug}"> Xanax </td>
+        <td th:text="${medication.dose}"> John.Smith@xx.com</td>
+        <td th:text="${medication.days}"> 2</td>
+        <td th:text="${medication.note}"> none</td>
+    </tr>
+    </tbody>
+</table><br>
+
+</body>
+</html>
