@@ -16,23 +16,26 @@ visualizzare le informazioni del paziente e dei farmaci, possono anche prescrive
 Esiste poi la figura del manager che avrà visibilità di reportistica (ma non sarà implementata).
 Si prevede che il sistema sia facilmente comprensibile ed utilizzabile dopo una formazione minima di 4 ore e che dopo 
 questo addestramento, gli errori non eccedano i 2 per ogni ora di utilizzo del sistema.
+Alcuni degli scenari descritti, avrebbero potuto essere spezzati in più scenari più piccoli, tuttavia, avendo un numero limitato di
+scenari da implementare ed essendo alcuni scenari potenzialmente troppo piccoli, ho deciso di accorpare più funzionalità correlate in
+singoli scenari.
 
 
 ## SCENARI
 
 ### 1. __Login__
-**Assunzione iniziale:** nell'organizzazione esistono 4 differenti tipi di ruolo: Segreteria, Infermiera, Medico, 
-Manager. Ogni tipologia di ruolo ha la necessità di poter visualizzare informazioni diverse e l'obbligo di non poterne
+**Assunzione iniziale:** nell'organizzazione esistono 4 differenti tipi di ruolo: *Segreteria*, *Infermiera*, *Medico*, 
+*Manager*. Ogni tipologia di ruolo ha la necessità di poter visualizzare informazioni diverse e l'obbligo di non poterne
 visualizzare alcune. E' importante quindi che ogni funzione abbia un accesso distinto.
 
 **Situazione normale:** Il lavoratore col proprio ruolo, utilizzando le credenziali fornite in precedenza, clicca sul
 pulsante login e riesce a visualizzare la pagina di benvenuto.
 in base al proprio ruolo, vedrà un menù a tendina ad hoc con le proprie funzionalità.
 
-- Receptionist: Home, New Patient, Patients List, Appointment List, Logout.
-- Infermiera: Home, View Record, Edit Record, Logout.
-- Medico: Home, Patients List, View Record, Edit Record, Setup consultation, Generate report, Logout.
-- Manager: Home, Patients List, Export statistics, Generate report, Logout.
+- *Receptionist*: Home, New Patient, Patients List, Appointment List, Logout.
+- *Infermiera*: Home, View Record, Edit Record, Logout.
+- *Medico*: Home, Patients List, View Record, Edit Record, Setup consultation, Generate report, Logout.
+- *Manager*: Home, Patients List, Export statistics, Generate report, Logout.
 
 **Cosa può andare storto:** L'username e password sono errate. Il sistema non ti permetterà di accedere al sistema.
 
@@ -47,7 +50,7 @@ stato di pericolosità del paziente (per rendere noto a tutto il personale di ge
 inserita dall'addetto alla reception. L'addetto alla reception, dovrà accedere al sistema MentCare tramite login,
 cliccare sul menù a tendina "New Patient" ed inserire le informazioni. Verrà inserito Nome, Cognome, indirizzo mail e 
 livello di pericolosità.
-Tutti i campi sono obbligatori. L'indirizzo mail dev'essere ben formato e il livello di pericolosità verrà scelto 
+Tutti i campi sono **obbligatori**. L'indirizzo mail dev'essere ben formato e il livello di pericolosità verrà scelto 
 tramite menù a tendina. Una volta che il paziente verrà cesito, il sistema tornerà all'homepage.
 Per poter visualizzare la lista dei pazienti censiti, l'addetto reception dovrà selezionare il menù a tendina "Patients 
 List" e vedrà le informazioni appena censite.
@@ -68,7 +71,7 @@ Non si può prenotare ad una distanza superiore di un anno e ci può essere al m
 A seguito del'accesso, clicca su "Patient List" e cerca il paziente a cui dare il nuovo appuntamento.
 Clicca sulla riga corrispettiva al paziente, il tasto "new appointment".
 A quel punto apparirà una pagina con un menù a tendina di tutti gli appuntamenti attualmente richiedibili.
-Se un altro paziente ha già chiesto uno slot, quello non sarà più visibile nel menù a tendina.
+Se un altro paziente ha già chiesto uno slot, quello **non sarà più visibile** nel menù a tendina.
 Dopo aver deciso assieme al paziente lo slot di giorno ed ora preferiti, vengono selezionati tramite menù a tendina e 
 verrà cliccato il tasto "invia". In caso di successo apparirà la scritta "appointment correctly inserted."
 
