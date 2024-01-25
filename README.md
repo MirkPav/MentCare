@@ -119,7 +119,7 @@ infermieri.
 ## QUALITY ASSURANCE
 
 ### Test Selection
-Sono stati implementati i test di Accettazione inerenti a tutti gli scenari e a tutte le pagine web.
+Sono stati implementati i test di sistema inerenti a tutti gli scenari e a tutte le pagine web.
 Si è cercato di coprire tutte le casistiche utente standard.
 Ho dovuto utilizzare un Mock per censire i vari utenti:
 
